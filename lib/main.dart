@@ -48,7 +48,11 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  TextEditingController salarioController = TextEditingController();
+
   int _counter = 0;
+  final double _salario_minimo = 1320.00;
+  double _salario = 0;
 
   void _incrementCounter() {
     setState(() {
@@ -58,6 +62,13 @@ class _MyHomePageState extends State<MyHomePage> {
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
       _counter++;
+    });
+  }
+
+  void _calculate(String salario) {
+    setState(() {
+    _salario = double.parse(salarioController.text);
+
     });
   }
 
@@ -95,37 +106,115 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Image.asset('assets/inss_logo.png',
-            width: 300),
+            Image.asset('assets/inss_logo.png', width: 300),
             const Text(
               'Digite aqui seu salário:',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30, height: 3),
+              style: TextStyle(
+                  fontWeight: FontWeight.bold, fontSize: 30, height: 3),
             ),
             /*
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),*/
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 40.0),
-              child: TextField(
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 80.0),
+              child: TextFormField(
+                controller: salarioController,
+                style: TextStyle(fontSize: 30),
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   hintText: '00,00',
-
                 ),
                 textAlign: TextAlign.center,
                 keyboardType: TextInputType.number,
-
               ),
             ),
+            const Text(""),
+            Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Column(
+                  children: <Widget>[
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Column(
+                          children: const <Widget>[
+                            Text("MEI ou baixa renda",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 22,
+                                    color: Colors.blue)),
+                            Text("5% do salário mínimo",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 18)),
+                          ],
+                        ),
+                        Text(
+                            ((_salario_minimo * 0.05).toStringAsFixed(2) +
+                                    'R\$')
+                                .replaceAll('.', ','),
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 26)),
+                      ],
+                    ),
+                    const Text(""),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Column(
+                          children: const <Widget>[
+                            Text("Plano Simplificado",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 22,
+                                    color: Colors.blue)),
+                            Text("11% do salário mínimo",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 18)),
+                          ],
+                        ),
+                        Text(
+                            ((_salario_minimo * 0.11).toStringAsFixed(2) +
+                                    'R\$')
+                                .replaceAll('.', ','),
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 26)),
+                      ],
+                    ),
+                    const Text(""),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Column(
+                          children: const <Widget>[
+                            Text("Plano Normal",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 22,
+                                    color: Colors.blue)),
+                            Text("20% do seu salário",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 18)),
+                          ],
+                        ),
+                        Text(
+                            ((_salario_minimo * 0.11).toStringAsFixed(2) +
+                                    'R\$')
+                                .replaceAll('.', ','),
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 26)),
+                      ],
+                    )
+                  ],
+                ))
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
-        child: const Icon(Icons.arrow_outward),
+        child: const Icon(Icons.monetization_on_outlined, size: 35),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
