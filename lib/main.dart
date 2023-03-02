@@ -144,7 +144,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     ' R\$')
                                 .replaceAll('.', ','),
                             style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 26)),
+                                fontWeight: FontWeight.bold, fontSize: 24)),
                       ],
                     ),
                     const Text(""),
@@ -168,7 +168,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     ' R\$')
                                 .replaceAll('.', ','),
                             style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 26)),
+                                fontWeight: FontWeight.bold, fontSize: 24)),
                       ],
                     ),
                     const Text(""),
@@ -194,7 +194,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 ' R\$')
                                 .replaceAll('.', ','),
                             style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 26)),
+                                fontWeight: FontWeight.bold, fontSize: 24)),
                       ],
                     ),
                     const Text(""),
@@ -219,7 +219,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     ' R\$')
                                 .replaceAll('.', ','),
                             style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 26)),
+                                fontWeight: FontWeight.bold, fontSize: 24)),
                       ],
                     ),
                   ],
