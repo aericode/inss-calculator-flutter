@@ -127,6 +127,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: const <Widget>[
                             Text("MEI ou baixa renda",
                                 style: TextStyle(
@@ -175,6 +176,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: const <Widget>[
                             Text("Prestador de serviço a PJ",
                                 style: TextStyle(
@@ -187,6 +189,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           ],
                         ),
                         Text(
+
                             ((_salario * 0.11).toStringAsFixed(2) +
                                 ' R\$')
                                 .replaceAll('.', ','),
@@ -199,6 +202,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: const <Widget>[
                             Text("Plano Normal",
                                 style: TextStyle(
